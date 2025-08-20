@@ -1,0 +1,13 @@
+[project]
+name = "python_2025_1"
+version = "0.1.0"
+description = "test project"
+readme = "readme.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.3",
+]
+
+[tool.mypy]
+show_error_codes = true
+#disable_error_code = ["misc"]
