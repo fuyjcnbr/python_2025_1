@@ -1,10 +1,8 @@
 # import glob
-from typing import Optional, Any
+from typing import Optional
 
 from dataclasses import dataclass
 from enum import Enum
-import os
-import re
 from pathlib import Path
 from datetime import date, datetime
 # import gzip
@@ -13,9 +11,6 @@ from datetime import date, datetime
 # import polars as pl
 # import pandas as pd
 
-
-# from python_2025_1.misc.html_template import html_template
-# import html_template
 
 
 class FileType(Enum):

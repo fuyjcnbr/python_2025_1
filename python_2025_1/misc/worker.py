@@ -1,12 +1,9 @@
 # import glob
 from typing import Optional, Any
 
-from dataclasses import dataclass
-from enum import Enum
 import os
 import re
 from pathlib import Path
-from datetime import date, datetime
 import gzip
 import sys
 import logging
@@ -15,13 +12,11 @@ import polars as pl
 import pandas as pd
 
 
-# from python_2025_1.misc.html_template import html_template
 sys.path.insert(1, str(Path(__file__).parent.parent.parent.resolve()))
 from python_2025_1.misc.html_template import html_template
 from python_2025_1.misc.misc import FileType, Log, PrettyPrintDict
 
-# from html_template import html_template
-# from misc import FileType, Log, PrettyPrintDict
+
 
 
 # class FileType(Enum):
@@ -73,9 +68,9 @@ class Worker:
             Log(path=Path.joinpath(Path(self.log_dir), f).resolve(), file_type=Worker.log_type(f))
             for f in os.listdir(self.log_dir) if Worker.log_type(f) != FileType.Unknown
         ]
-        l = max(logs, key=lambda x: x.get_date())
-        self.logger.info(f"found log={l}")
-        return l
+        log = max(logs, key=lambda x: x.get_date())
+        self.logger.info(f"found log={log}")
+        return log
 
     @staticmethod
     def url_of_request(r: str) -> Optional[str]:
