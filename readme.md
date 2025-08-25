@@ -1,26 +1,21 @@
 
 
-
-main prints "lala"
-
-
-docker build --no-cache --squash -t python_hw_1 -f docker/Dockerfile .
+## Скрипт для парсинга логов.
 
 
-docker run -it python_hw_1 /bin/bash
+## Возможные параметры:
 
-docker run -v ~/PycharmProjects/python_2025_1:/src -it python_hw_1 /bin/bash
+--report_size размер отчёта (в строках)
+
+--report_dir директория, куда класть отчёт
+
+--log_dir директория с логами
 
 
+## Пример сборки и запуска:
 
-make -B tests
-
-uv run make tests
-
-uv lock
-
-.venv
-
-uv run python_2025_1/log_analyzer.py
-
-uv run ruff check python_2025_1 --config pyproject.toml
+```console
+foo@bar:~$ docker build --no-cache --squash -t python_hw_1 -f docker/Dockerfile .
+foo@bar:~$ docker run -v ~/PycharmProjects/python_2025_1:/src -it python_hw_1 /bin/bash
+foo@bar:~$ uv run python_2025_1/log_analyzer.py
+```

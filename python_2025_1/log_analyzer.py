@@ -50,28 +50,10 @@ def main():
     logger_kwargs["stream"] = sys.stdout
     logging.basicConfig(**logger_kwargs)
 
-    # logging.basicConfig(
-    #     filename="log_analyzer.log",
-    #     encoding="utf-8",
-    #     level=logging.INFO,
-    #     format="%(asctime)s;%(name)s;%(levelname)s;%(message)s",
-    # )
-    # logging.basicConfig(
-    #     stream=sys.stdout,
-    #     encoding="utf-8",
-    #     level=logging.INFO,
-    #     format="%(asctime)s;%(name)s;%(levelname)s;%(message)s",
-    # )
-    # handler = logging.StreamHandler(sys.stdout)
-    # handler.setLevel(logging.DEBUG)
-    # formatter = logging.Formatter('%(asctime)s;%(name)s;%(levelname)s;%(message)s')
-    # handler.setFormatter(formatter)
-    # logger.addHandler(handler)
-
     logger.info("starting")
-    w = Worker(log_dir="data", report_dir="report", logger=logger)
+    # w = Worker(log_dir="data", report_dir="report", logger=logger)
+    w = Worker(log_dir=args.log_dir, report_dir=args.report_dir, logger=logger, report_size=args.report_size)
     log = w.get_log()
-    # print(log)
     li = w.get_log_stats(log)
     w.generate_report(log, li)
     logger.info("finished")

@@ -1,16 +1,9 @@
-# import glob
 from typing import Optional
 
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
 from datetime import date, datetime
-# import gzip
-# import sys
-#
-# import polars as pl
-# import pandas as pd
-
 
 
 class FileType(Enum):
